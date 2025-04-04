@@ -1,17 +1,15 @@
-# 🚀 FITIFY - Fitness Tracking Website 🚀
+# 🚀 FITByte - Fitness Tracking Website 🚀
 
-FITIFY is a fitness tracking website built using HTML, CSS, Javascript, Node.js, Express. It provides various features for calculating, tracking and managing your fitness-related information. It is designed to help you in your fitness journey by providing powerful tools to track your progress. 
+FITByte is a fitness tracking website built using HTML, CSS, Javascript, Node.js, Express. It provides various features for calculating, tracking and managing your fitness-related information. It is designed to help you in your fitness journey by providing powerful tools to track your progress. 
 
 ## Table of Contents
-- [Screenshorts](#screenshorts)
-- [Features](#features)
-- [Built With](#built-with)
-- [Links](#links)
-- [Author](#author)
+- [Screenshorts]
+- [Features]
+- [Built With]
+- [Links]
+- [Author]
 
-## Screenshorts
-![ScreenShot](./ScreenShot3.png)
-![ScreenShot](./ScreenShot2.png)
+
 
 ## Features
 
@@ -21,8 +19,7 @@ The website includes the following features:
 - **Calorie Calculator**: Calculate your calorie intake and other nutritional data by tracking your meals.
 - **Ideal Weight Calculation**: Calculate your ideal weight based on your height and bmi.
 - **Recipe Finder**: Find delicious recipes to satisfy your cravings.
-- **User Data Storage**: Store and manage user data using MongoDB.
-- **External API Integrations**: Utilize the SPOONACULAR API & EDAMAM API for retrieving nutritional information and tracking calories.  
+- **External API Integrations**: Utilize the SPOONACULAR API  for retrieving nutritional information
 
 ## Built With
 
@@ -37,11 +34,6 @@ The website includes the following features:
 
 ## Links
 
-- Live Site: [Click Here](https://fitify-fitness-tracker.netlify.app/)
-- Source Code Repo: [Click Here](https://github.com/chayansurana3/FITIFY-Fitness-Tracker.git)
 
-## Author
-
-- Chayan Surana
-- [Linkedin](https://www.linkedin.com/in/chayan-surana-a93857136/)
-- Email - chayan.surana3@gmail.com
+- [Linkedin](https://www.linkedin.com/in/aysha-dheesan-banu/)
+- Email - dheesanaysha@gmail.com
