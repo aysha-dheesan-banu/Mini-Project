@@ -1,0 +1,48 @@
+{
+  "name": "my-webpack-project",
+  "version": "1.0.0",
+  "description": "My webpack project",
+  "main": "netlify/functions/recipe.js",
+  "scripts": {
+    "start": "node netlify/functions/recipe.js",
+    "frontend": "lite-server --baseDir=public",
+    "dev": "nodemon netlify/functions/recipe.js",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
+  },
+  "author": "Chayan Surana",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.21.2",
+    "https": "^1.0.0",
+    "mongoose": "^7.2.0",
+    "netlify-lambda": "^0.4.0",
+    "node.js": "^0.0.1-security",
+    "nodemon": "^3.1.9",
+    "react-scripts": "^5.0.1",
+    "request": "^2.88.2",
+    "require.js": "^1.0.0",
+    "requirejs": "^2.3.6",
+    "sweetalert2": "^11.6.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.1",
+    "@babel/preset-env": "^7.22.4",
+    "@webpack-cli/generators": "^2.5.0",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.1",
+    "lite-server": "^2.6.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  }
+}

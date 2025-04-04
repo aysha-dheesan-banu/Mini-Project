@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            margin: auto;
+        }
+        h2 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #001F8D;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, button {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #001F8D;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #0036CC;
+        }
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 18px;
+        }
+        table, th, td {
+            border: 2px solid #001F8D;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #001F8D;
+            color: white;
+        }
+        .nutrition-table th {
+            background-color: white;
+            color: #001F8D;
+        }
+        .nutrition-table td {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>CALORIE CALCULATOR</h2>
+        
+        <label>Meal Name:</label>
+        <input type="text" id="mealName" placeholder="Enter Meal">
+
+        <label>Serving Size:</label>
+        <input type="number" id="servingSize" placeholder="Enter Serving Size" min="1">
+
+        <button onclick="trackMeal()">TRACK</button>
+    </div>
+
+    <h2>MEALS TRACKED</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Meal</th>
+                <th>Serving Size</th>
+                <th>Calories</th>
+            </tr>
+        </thead>
+        <tbody id="mealTableBody"></tbody>
+    </table>
+
+    <h2>NUTRITION DETAILS</h2>
+    <table class="nutrition-table">
+        <tbody id="nutritionDetails"></tbody>
+    </table>
+
+    <script>
+        // Generate 1000 random Indian food items dataset
+        let indianFoods = ["dosa", "idli", "roti", "rice", "dal", "samosa", "pulao", "poha", "chapati", "biriyani", "butter chicken",
+            "kadhi", "rajma", "chole", "upma", "halwa", "kheer", "paneer tikka", "tandoori chicken", "aloo paratha", "pani puri", 
+            "mango lassi", "lassi", "dhokla", "pakora", "sev puri", "rasgulla", "gulab jamun", "kaju katli", "gajar halwa"];
+        
+        let foodData = {};
+        
+        for (let i = 0; i < 1000; i++) {
+            let food = indianFoods[Math.floor(Math.random() * indianFoods.length)];
+            foodData[`${food}_${i}`] = {
+                calories: Math.floor(Math.random() * (400 - 50) + 50),
+                protein: (Math.random() * (20 - 1) + 1).toFixed(2),
+                fat: (Math.random() * (30 - 1) + 1).toFixed(2),
+                carbs: (Math.random() * (50 - 5) + 5).toFixed(2),
+                fiber: (Math.random() * (10 - 0) + 0).toFixed(2),
+            };
+        }
+
+        function trackMeal() {
+            let meal = document.getElementById("mealName").value.toLowerCase().trim();
+            let size = parseInt(document.getElementById("servingSize").value);
+
+            if (!meal || isNaN(size) || size <= 0) {
+                alert("Please enter valid inputs.");
+                return;
+            }
+
+            let matchedMeal = Object.keys(foodData).find(key => key.includes(meal));
+
+            if (!matchedMeal) {
+                alert(`No data available for ${meal}.`);
+                return;
+            }
+
+            let mealCalories = foodData[matchedMeal].calories * size;
+            let mealProtein = foodData[matchedMeal].protein * size;
+            let mealFat = foodData[matchedMeal].fat * size;
+            let mealCarbs = foodData[matchedMeal].carbs * size;
+            let mealFiber = foodData[matchedMeal].fiber * size;
+
+            // Add meal to the table
+            let mealTable = document.getElementById("mealTableBody");
+            let row = `<tr>
+                        <td>${meal}</td>
+                        <td>${size}</td>
+                        <td>${mealCalories}</td>
+                    </tr>`;
+            mealTable.innerHTML = row;
+
+            // Update Nutrition Details
+            let nutritionTable = document.getElementById("nutritionDetails");
+            nutritionTable.innerHTML = `
+                <tr><th>CALORIES</th><td>${mealCalories}</td></tr>
+                <tr><th>PROTEIN(g)</th><td>${mealProtein}g</td></tr>
+                <tr><th>FAT(g)</th><td>${mealFat}g</td></tr>
+                <tr><th>CARBOHYDRATES(g)</th><td>${mealCarbs}g</td></tr>
+                <tr><th>FIBRE(g)</th><td>${mealFiber}g</td></tr>
+            `;
+        }
+    </script>
+
+</body>
+</html>
+
+

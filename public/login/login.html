@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="fitness-background.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="login-container">
+        <h1 class="title">FitTrack</h1>
+        <p class="description">Track your progress, stay fit, and achieve your goals!</p>
+
+        <form id="login-form">
+            <input type="text" id="username" name="username" placeholder="Enter Username" required>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <p id="message"></p>
+        <p class="signup-text">New to FitTrack? <a href="signup.html">Create an Account</a></p>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

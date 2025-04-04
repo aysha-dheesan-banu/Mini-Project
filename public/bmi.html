@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 100px;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbDuegOBPIO9T3YAK5q1daQoRxTEr9hY5f-Q&s');
+            background-size:cover; /* Ensures it covers the whole page */
+            background-position: left top; /* Centers the image */
+           background-repeat: no-repeat; /* Prevents tiling */
+}
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color:rgb(155, 152, 163);
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #ff5733;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #c70039;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #1878d1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>BMI Calculator</h2>
+        <label for="height">Enter Your Height (cm):</label>
+        <input type="number" id="height" placeholder="e.g. 170">
+        
+        <label for="weight">Enter Your Weight (kg):</label>
+        <input type="number" id="weight" placeholder="e.g. 70">
+        
+        <label for="goal">Select Your Fitness Goal:</label>
+        <select id="goal">
+            <option value="weight_loss">Weight Loss</option>
+            <option value="muscle_gain">Muscle Gain</option>
+            <option value="endurance">Endurance</option>
+        </select>
+        
+        <button onclick="calculateBMI()">Get Workout Plan</button>
+        <p class="result" id="recommendation"></p>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            let height = parseFloat(document.getElementById('height').value) / 100;
+            let weight = parseFloat(document.getElementById('weight').value);
+            let goal = document.getElementById('goal').value;
+            let recommendation = "";
+
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                recommendation = "Please enter valid height and weight values.";
+            } else {
+                let bmi = weight / (height * height);
+                bmi = bmi.toFixed(1);
+                
+                if (bmi < 18.5) {
+                    recommendation = `Your BMI is ${bmi}. You are underweight. Focus on strength training and a nutritious diet.`;
+                } else if (bmi >= 18.5 && bmi <= 24.9) {
+                    recommendation = `Your BMI is ${bmi}. You have a normal BMI. Maintain a balanced workout routine.`;
+                } else if (bmi >= 25 && bmi <= 29.9) {
+                    recommendation = `Your BMI is ${bmi}. You are overweight. Prioritize cardio and strength training.`;
+                } else {
+                    recommendation = `Your BMI is ${bmi}. You are obese. Start with low-impact exercises and a healthy diet.`;
+                }
+
+                if (goal === "weight_loss") {
+                    recommendation += " Try HIIT workouts, running, and cycling 4-5 times a week.";
+                } else if (goal === "muscle_gain") {
+                    recommendation += " Focus on resistance training with progressive overload.";
+                } else if (goal === "endurance") {
+                    recommendation += " Include long-distance running, swimming, and circuit training.";
+                }
+            }
+            document.getElementById('recommendation').innerText = recommendation;
+        }
+    </script>
+</body>
+</html>
