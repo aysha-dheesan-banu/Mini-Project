@@ -23,7 +23,7 @@ document.getElementById("login-form").addEventListener("submit", async function 
 
             // Redirect to index.html after 2 seconds
             setTimeout(() => {
-                window.location.href = "/public/index.html";
+                window.location.href = "https://aysha-dheesan-banu.github.io/Mini-Project/public/index.html";
 
             }, 2000);
         } else {
